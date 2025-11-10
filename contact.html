@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <title>Contact Us - Radhe Packers and Movers</title>
+
+    <meta name="google-site-verification" content="9m5L5e60YkWN0w1u8JRgOigL2EfW8nknSYShqTNQsE8" />
+
+    <meta name="description" content="राधे पैकर्स एंड मूवर्स से संपर्क करें। हमें कॉल करें या अपना संदेश भेजें ताकि हम आपको तुरंत मुफ्त कोटेशन दे सकें।">
+    <meta name="keywords" content="Packers Movers Contact, Radhe Movers contact number, Get Free Quote, Contact form">
+    <meta name="author" content="Radhe Packers and Movers">
+    <meta property="og:title" content="हमसे संपर्क करें | Radhe Packers and Movers">
+    <meta property="og:url" content="http://radhepackersandmovers.com/contact.html"> 
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">Radhe Movers</a>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> 
+            </button>
+            
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="page-header" class="contact-header">
+        <div class="container">
+            <h1>हमसे संपर्क करें</h1>
+            <p>हमें कॉल करें या अपना संदेश भेजें ताकि हम आपको तुरंत मुफ्त कोटेशन दे सकें।</p>
+        </div>
+    </section>
+
+    <section class="content-section contact-form-section">
+        <div class="container">
+            <h2>Get a quick quote</h2>
+
+            <form id="contactForm" action="https://formspree.io/f/mvgvwygg" method="post">
+
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+
+                <label for="email">email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                
+                <label for="phone">phone no.</label>
+                <input type="text" id="phone" name="phone" placeholder="phone NO.." required>
+
+                <label for="service">Essentile Service</label>
+                <select id="service" name="service" required>
+                    <option value="">--- service choose ---</option>
+                    <option value="Household Shifting">घरेलू शिफ्टिंग</option>
+                    <option value="Office Moving">ऑफिस मूविंग</option>
+                    <option value="Vehicle Transport">वाहन ट्रांसपोर्ट (कार/बाइक)</option>
+                    <option value="Packing Only">केवल पैकिंग सेवा</option>
+                    <option value="Other">अन्य</option>
+                </select>
+
+                <label for="message">Your message/Details</label>
+                <textarea id="message" name="message" rows="5" placeholder="Full Details " required></textarea>
+
+                <button type="submit" class="btn btn-primary btn-lg">Send</button>
+            </form>
+            
+            <hr>
+            
+            <div class="contact-details text-center mt-5">
+                <h3>Contact </h3>
+                <p><i class="fas fa-phone-alt"></i> phone: <a href="tel:+919876543210">+91 6378077871,9636702689</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@radhemovers.com">meghvanship3@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: harmada,loha mandi rod,jaipur,rajsthan-302012</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Radhe Packers and Movers. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navList = document.querySelector('.nav-list');
+
+            if (menuToggle && navList) {
+                menuToggle.addEventListener('click', function() {
+                    navList.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
