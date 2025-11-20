@@ -1,477 +1,323 @@
-​/* --- Missing styles for Modal (Popup) Form --- */
-
-/* Form inputs and main button styling */
-#leadForm input, #leadForm button {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-#leadForm button {
-    background-color: #ff9900; /* Accent Color */
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s;
-}
-
-#leadForm button:hover {
-    background-color: #e68a00;
-}
-
-/* Skip Button Link style */
-.skip-btn-link {
-    background: none;
-    color: #007bff; /* Blue Link Color */
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: underline;
-    margin-top: 10px;
-    padding: 0;
-    display: block;
-}
-
-/* Close/Skip Icon (X) */
-.close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-​
-/* ========================================= */
-/* 1. GLOBAL STYLES & TYPOGRAPHY (सभी फ़ाइलों के लिए) */
-/* ========================================= */
+/* ======================================= */
+/* 0. Base Styling (Default Page Layout) */
+/* ======================================= */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
     color: #333;
-    scroll-behavior: smooth; 
+    background-color: #f4f4f4;
 }
 
-h1, h2, h3 {
-    color: #007bff; /* Primary Blue Color */
-}
-
-a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-/* Base Container Style */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 0 15px;
 }
 
-.content-section {
-    padding: 40px 0;
-    text-align: center;
+h1, h2, h3 {
+    color: #004d99; /* Dark Blue for Headings */
+    margin-bottom: 20px;
 }
 
-/* ========================================= */
-/* 2. HEADER & NAVIGATION STYLES (सभी फ़ाइलों के लिए) */
-/* ========================================= */
-.main-header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky; 
-    top: 0;
-    z-index: 1000;
-}
-
-.main-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #007bff;
-}
-
-.nav-list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-list li a {
-    color: #333;
-    padding: 10px 15px;
-    display: block;
-    transition: color 0.3s;
-}
-
-.nav-list li a:hover,
-.nav-list li a.active {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-}
-
-/* Menu Toggle Button (डेस्कटॉप पर छिपा रहेगा) */
-.menu-toggle {
-    display: none; 
-}
-
-/* ========================================= */
-/* 3. CAROUSEL SLIDER STYLING (केवल index.html पर लागू) */
-/* ========================================= */
-
-#hero-carousel {
-    width: 100%;
-    margin: 0; 
-    max-height: 500px;
-    overflow: hidden; 
-}
-
-/* यह कोड स्लाइडर को चलाएगा और इमेज को सही से दिखाएगा */
-#mainCarousel .carousel-item img {
-    height: 500px; 
-    object-fit: cover; 
-}
-
-/* स्लाइडर पर टेक्स्ट की स्टाइलिंग */
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 20px;
-    border-radius: 8px;
-    bottom: 20px !important; 
-    color: white; 
-    z-index: 10; 
-}
-
-.carousel-caption h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: white; 
-}
-
+/* Global Button Style */
 .btn-primary {
-    background-color: #ff9900; /* बटन का रंग */
-    border-color: #ff9900;
-    padding: 10px 20px;
+    background-color: #ff8c00; /* Orange color for buttons */
+    border: none;
+    padding: 10px 25px;
     border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
     transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #e68a00;
-    border-color: #e68a00;
+    background-color: #e07b00;
 }
 
-/* ========================================= */
-/* 4. FOOTER STYLES (सभी फ़ाइलों के लिए) */
-/* ========================================= */
-.line {
-    /* मैंने इसे .main-footer से बदलकर .line कर दिया है क्योंकि आपने इसे HTML में .line रखा था */
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-}
-
-/* ========================================= */
-/* 5. PAGE-SPECIFIC STYLES (about, service, contact आदि) */
-/* ========================================= */
-
-/* General Page Headers (Hero banner replacement for inner pages) */
-#page-header {
-    background-color: #f0f8ff; /* Light blue background */
-    padding: 50px 0;
-    text-align: center;
-    margin-top: 0;
-}
-
-#page-header h1 {
-    font-size: 2.5em;
-    color: #007bff;
-}
-
-/* CONTACT FORM STYLES */
-form {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    text-align: left;
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea,
-/* यहाँ pop-up input types भी जोड़ सकते हैं अगर form id न दी हो */
-#leadForm input[type="text"],
-#leadForm input[type="tel"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* ========================================= */
-/* 6. MOBILE RESPONSIVENESS (MEDIA QUERIES)  */
-/* ========================================= */
-
-@media (max-width: 992px) {
-    /* Navigation: Mobile view start (सभी HTML फ़ाइलों में लागू) */
-    .main-nav {
-        padding: 10px 15px;
-    }
-
-    /* Menu Toggle Button को दिखाएँ */
-    .menu-toggle {
-        display: block; 
-        color: #007bff;
-        font-size: 1.8em;
-    }
-
-    /* Navigation List को छिपाएँ और वर्टिकल करें */
-    .nav-list {
-        display: none; 
-        position: absolute;
-        top: 60px; 
-        left: 0;
-        width: 100%; 
-        background-color: #fff; 
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        flex-direction: column; 
-        z-index: 999; 
-    }
-
-    /* जब JS 'active-mobile' क्लास जोड़े, तब मेनू दिखाएँ (आपके JS के अनुसार नाम बदला गया) */
-    .main-nav.active-mobile .nav-list {
-        display: flex;
-    }
-    
-    .nav-list li {
-        width: 100%;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-    }
-    .nav-list li a {
-        padding: 12px 20px;
-        color: #333;
-    }
-    
-    /* Carousel: Mobile adjustments (केवल index.html पर लागू) */
-    #hero-carousel {
-        max-height: 300px;
-    }
-    #mainCarousel .carousel-item img {
-        height: 300px;
-    }
-    .carousel-caption h1 {
-        font-size: 1.3em;
-    }
-    .carousel-caption p {
-        font-size: 0.9em;
-        display: none; /* छोटी स्क्रीन पर पैराग्राफ छिपा सकते हैं */
-    }
-    .carousel-caption .btn-lg {
-        padding: 5px 10px;
-        font-size: 0.8em;
-    }
-}
-
-/* =========================================================
-   सर्विसेज (services.html) और गैलरी (gallery.html) के लिए स्टाइल
-   ========================================================= */
-
-/* 1. सर्विस बॉक्स स्टाइलिंग (services.html के लिए) */
-.service-box {
-    border: 1px solid #e0e0e0; /* हल्की बॉर्डर */
-    border-radius: 8px; /* गोल कोने */
-    transition: transform 0.3s, box-shadow 0.3s;
+/* ======================================= */
+/* 1. Header and Navigation */
+/* ======================================= */
+.main-header {
     background-color: #ffffff;
-    height: 100%; /* ग्रिड में ऊँचाई एकसमान रखने के लिए */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 50; /* Ensure header stays above everything */
 }
 
-/* सर्विस बॉक्स पर होवर इफ़ेक्ट */
-.service-box:hover {
-    transform: translateY(-5px); /* थोड़ा ऊपर उठाना */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* गहरा शैडो */
+.logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+    color: #004d99;
 }
 
-/* सर्विस बॉक्स के आइकन का रंग */
-.service-box i {
-    color: #007bff; /* Bootstrap primary रंग */
-    font-size: 3rem; /* आइकन का साइज़ */
+/* Desktop Navigation */
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-/* सर्विस बॉक्स की हेडिंग */
-.service-box h3 {
-    font-size: 1.3rem;
-    margin-top: 10px;
+.main-nav a:hover {
+    color: #ff8c00;
+}
+
+/* Hamburger Icon (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #004d99;
+}
+
+
+/* ======================================= */
+/* 2. Hero Section (Slider/Main Image) */
+/* ======================================= */
+.hero-section {
+    position: relative;
+    height: 450px; /* IMPORTANT: Height is necessary to display background image */
+    background-image: url('images/image-12.jpg'); /* <-- CHECK THIS PATH! */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* For Slider elements */
+}
+
+/* Optional: Overlay to make text readable */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+/* ======================================= */
+/* 3. Features Section */
+/* ======================================= */
+.main-features-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.main-features-section h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-features-section i {
+    font-size: 3em;
+    color: #ff8c00;
+    margin-bottom: 15px;
+}
+
+.main-features-section h3 {
+    font-size: 1.5em;
+    color: #004d99;
+}
+
+/* ======================================= */
+/* 4. Footer */
+/* ======================================= */
+footer {
+    padding: 20px 0;
+    text-align: center;
+    background-color: #333;
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+footer .line {
+    border-top: 1px solid #555;
     margin-bottom: 10px;
-    color: #333;
 }
 
-/* 2. गैलरी आइटम स्टाइलिंग (gallery.html के लिए) */
-.gallery-item {
-    overflow: hidden; /* कोने गोल करने के लिए ज़रूरी */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.gallery-item img {
-    width: 100%;
-    height: 250px; /* गैलरी फ़ोटो के लिए एक निश्चित ऊँचाई (आप बदल सकते हैं) */
-    object-fit: cover; /* इमेज को बिना विकृत किए भरना */
-    transition: transform 0.5s ease;
-}
-
-/* गैलरी इमेज पर होवर इफ़ेक्ट */
-.gallery-item img:hover {
-    transform: scale(1.05); /* ज़ूम इफ़ेक्ट */
-}
-
-/* 3. पेज हेडर के लिए विशिष्ट पृष्ठभूमि रंग (services.html और gallery.html के लिए) */
-
-/* सर्विसेज पेज का हेडर */
-.services-header {
-    background: #007bff; /* प्राथमिक नीला रंग */
-    color: white;
-}
-
-/* गैलरी पेज का हेडर */
-.gallery-header {
-    background: #28a745; /* द्वितीयक हरा रंग */
-    color: white;
-}
-
-/* About पेज का हेडर (अगर आपने पहले नहीं जोड़ा है) */
-.about-header {
-    background: #ffc107; /* पीला रंग */
-    color: #333;
-}
-
-/* =========================================================
-   7. MODAL (POPUP) STYLES (index.html पर लागू)
-   ========================================================= */
-
-.modal {
-    display: none; /* Default: Hides the popup until JavaScript shows it */
-    position: fixed; /* Fixes it on the screen */
-    z-index: 1000; /* Ensures it appears on top of all other content */
+/* ======================================= */
+/* 5. POPUP/MODAL STYLING (The Fix) */
+/* ======================================= */
+.modal-popup {
+    /* Main Modal Container */
+    display: none; /* Hidden by default - JS shows it */
+    position: fixed; 
+    z-index: 10000; /* Extremely high z-index to appear on top */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.8); /* Dark, translucent background */
+    background-color: rgba(0,0,0,0.7); 
+    
+    /* 🚨 FIX: Prevents blocking clicks when invisible */
+    pointer-events: none; 
+    transition: opacity 0.3s; /* Smooth transition */
 }
 
-.modal-content {
+/* JS makes this visible when it changes display:block */
+.modal-popup[style*="block"] {
+    opacity: 1;
+    pointer-events: auto; /* Only clickable when visible */
+}
+
+.modal-content-popup {
     background-color: #fefefe;
-    margin: 15% auto; /* Centers it vertically and horizontally */
-    padding: 30px;
+    margin: 15% auto; /* Centered vertically/horizontally */
+    padding: 25px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 400px; /* Maximum width for better appearance on desktop */
-    text-align: center;
+    width: 90%; 
+    max-width: 450px; /* Controlled size for mobile */
     border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modal-header-popup {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
     position: relative;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s
 }
 
-/* Animation for the modal entrance */
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+.modal-header-popup h2 {
+    color: #004d99;
+    font-size: 1.4em;
+    margin: 0;
 }
 
-/* Form inputs and main button styling */
-#leadForm input, #leadForm button {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-#leadForm button {
-    background-color: #ff9900; /* Accent Color */
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s;
-}
-
-#leadForm button:hover {
-    background-color: #e68a00;
-}
-
-/* Skip Button Link style */
-.skip-btn-link {
-    background: none;
-    color: #007bff; /* Blue Link Color */
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: underline;
-    margin-top: 10px;
-    padding: 0;
-    display: block;
-}
-
-/* Close/Skip Icon (X) */
 .close-btn {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-    color: #000;
+    color: #333;
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Form Styling */
+#leadForm input[type="text"],
+#leadForm input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.popup-submit-btn {
+    width: 100%;
+    background-color: #ff8c00;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.skip-btn {
+    background: none;
+    border: none;
+    color: #004d99;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+}
+
+/* ======================================= */
+/* 6. Mobile Responsiveness */
+/* ======================================= */
+@media (max-width: 768px) {
+    
+    .main-nav {
+        /* Mobile Menu is initially hidden off-screen */
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 40;
+    }
+
+    .main-nav a {
+        padding: 10px 20px;
+        margin: 0;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+    }
+    
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+
+    /* JavaScript Toggle Class */
+    .main-nav.active-mobile {
+        display: flex; /* Show menu when JS adds this class */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon on mobile */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    
+    /* Center text on mobile features */
+    .main-features-section .col-md-4 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .modal-content-popup {
+        margin: 5% auto; /* Move pop-up higher on small screens */
+    }
+}
+
