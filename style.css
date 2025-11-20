@@ -47,7 +47,7 @@ h1, h2, h3 {
     padding: 15px 0;
     position: sticky;
     top: 0;
-    z-index: 50; /* Ensure header stays above everything */
+    z-index: 50; 
 }
 
 .logo h1 {
@@ -56,7 +56,6 @@ h1, h2, h3 {
     color: #004d99;
 }
 
-/* Desktop Navigation */
 .main-nav a {
     text-decoration: none;
     color: #333;
@@ -69,7 +68,6 @@ h1, h2, h3 {
     color: #ff8c00;
 }
 
-/* Hamburger Icon (Hidden on Desktop) */
 .menu-toggle {
     display: none;
     font-size: 1.5em;
@@ -79,37 +77,25 @@ h1, h2, h3 {
 
 
 /* ======================================= */
-/* 2. Hero Section (Slider/Main Image) */
+/* 2. Hero Section (Slider/Main Image) - 💥 SLIDER FIX HERE 💥 */
 /* ======================================= */
 .hero-section {
     position: relative;
-    height: 450px; /* IMPORTANT: Height is necessary to display background image */
-    background-image: url('images/image-12.jpg'); /* <-- CHECK THIS PATH! */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
+    height: 450px; 
+    
+    /* BACKGROUND IMAGE REMOVED: (background-image: url... ) ताकि स्लाइडर दिखे */
+    
+    display: flex; /* Slider और Content को सेंटर करने के लिए */
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow: hidden; /* For Slider elements */
+    overflow: hidden; 
 }
 
-/* Optional: Overlay to make text readable */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
-    z-index: 1;
-}
-
+/* Content Slider के ऊपर दिखने के लिए */
 .hero-content {
-    position: relative;
-    z-index: 2;
+    position: absolute; /* Slider के ऊपर आएगा */
+    z-index: 10;
     padding: 20px;
 }
 
@@ -122,6 +108,31 @@ h1, h2, h3 {
     font-size: 1.3em;
     margin-bottom: 30px;
 }
+
+/* Slider Images Styling */
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* फ़ोटो को Crop किए बिना पूरी तरह से भरें */
+}
+
+/* Optional: Overlay to make text readable */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    z-index: 5; /* Content से कम लेकिन Slider से ज़्यादा */
+}
+
 
 /* ======================================= */
 /* 3. Features Section */
@@ -166,13 +177,12 @@ footer .line {
 
 
 /* ======================================= */
-/* 5. POPUP/MODAL STYLING (The Fix) */
+/* 5. POPUP/MODAL STYLING (The Final Fix) */
 /* ======================================= */
 .modal-popup {
-    /* Main Modal Container */
-    display: none; /* Hidden by default - JS shows it */
+    display: none; 
     position: fixed; 
-    z-index: 10000; /* Extremely high z-index to appear on top */
+    z-index: 10000; 
     left: 0;
     top: 0;
     width: 100%;
@@ -180,24 +190,22 @@ footer .line {
     overflow: auto;
     background-color: rgba(0,0,0,0.7); 
     
-    /* 🚨 FIX: Prevents blocking clicks when invisible */
+    /* 🚨 FINAL FIX: Prevents blocking clicks when invisible */
     pointer-events: none; 
-    transition: opacity 0.3s; /* Smooth transition */
 }
 
-/* JS makes this visible when it changes display:block */
+/* JS जब पॉपअप दिखाता है तब यह क्लास ओवरराइड हो जाती है। */
 .modal-popup[style*="block"] {
-    opacity: 1;
     pointer-events: auto; /* Only clickable when visible */
 }
 
 .modal-content-popup {
     background-color: #fefefe;
-    margin: 15% auto; /* Centered vertically/horizontally */
+    margin: 15% auto; 
     padding: 25px;
     border: 1px solid #888;
     width: 90%; 
-    max-width: 450px; /* Controlled size for mobile */
+    max-width: 450px; 
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     text-align: center;
@@ -210,12 +218,6 @@ footer .line {
     position: relative;
 }
 
-.modal-header-popup h2 {
-    color: #004d99;
-    font-size: 1.4em;
-    margin: 0;
-}
-
 .close-btn {
     color: #aaa;
     float: right;
@@ -225,24 +227,6 @@ footer .line {
     top: 5px;
     right: 5px;
     cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Form Styling */
-#leadForm input[type="text"],
-#leadForm input[type="tel"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
 }
 
 .popup-submit-btn {
@@ -273,12 +257,11 @@ footer .line {
 @media (max-width: 768px) {
     
     .main-nav {
-        /* Mobile Menu is initially hidden off-screen */
         display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px; /* Below the header */
+        top: 60px; 
         left: 0;
         background-color: #fff;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -293,31 +276,19 @@ footer .line {
         text-align: left;
     }
     
-    .main-nav a:last-child {
-        border-bottom: none;
-    }
-
-    /* JavaScript Toggle Class */
     .main-nav.active-mobile {
-        display: flex; /* Show menu when JS adds this class */
+        display: flex; 
     }
 
     .menu-toggle {
-        display: block; /* Show hamburger icon on mobile */
+        display: block; 
     }
     
     .hero-content h1 {
         font-size: 2.2em;
     }
     
-    /* Center text on mobile features */
-    .main-features-section .col-md-4 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    
     .modal-content-popup {
-        margin: 5% auto; /* Move pop-up higher on small screens */
+        margin: 5% auto; 
     }
 }
-
