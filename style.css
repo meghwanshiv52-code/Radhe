@@ -1,3 +1,62 @@
+​/* --- Missing styles for Modal (Popup) Form --- */
+
+/* Form inputs and main button styling */
+#leadForm input, #leadForm button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+#leadForm button {
+    background-color: #ff9900; /* Accent Color */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#leadForm button:hover {
+    background-color: #e68a00;
+}
+
+/* Skip Button Link style */
+.skip-btn-link {
+    background: none;
+    color: #007bff; /* Blue Link Color */
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 10px;
+    padding: 0;
+    display: block;
+}
+
+/* Close/Skip Icon (X) */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+​
 /* ========================================= */
 /* 1. GLOBAL STYLES & TYPOGRAPHY (सभी फ़ाइलों के लिए) */
 /* ========================================= */
@@ -130,7 +189,8 @@ a {
 /* ========================================= */
 /* 4. FOOTER STYLES (सभी फ़ाइलों के लिए) */
 /* ========================================= */
-.main-footer {
+.line {
+    /* मैंने इसे .main-footer से बदलकर .line कर दिया है क्योंकि आपने इसे HTML में .line रखा था */
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -174,7 +234,10 @@ form label {
 
 form input[type="text"],
 form input[type="email"],
-form textarea {
+form textarea,
+/* यहाँ pop-up input types भी जोड़ सकते हैं अगर form id न दी हो */
+#leadForm input[type="text"],
+#leadForm input[type="tel"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -213,8 +276,8 @@ form textarea {
         z-index: 999; 
     }
 
-    /* जब JS 'open' क्लास जोड़े, तब मेनू दिखाएँ */
-    .nav-list.open {
+    /* जब JS 'active-mobile' क्लास जोड़े, तब मेनू दिखाएँ (आपके JS के अनुसार नाम बदला गया) */
+    .main-nav.active-mobile .nav-list {
         display: flex;
     }
     
@@ -320,82 +383,9 @@ form textarea {
     color: #333;
 }
 
-/* Modal (Popup) के लिए स्टाइल */
-.modal {
-    display: none; /* डिफ़ॉल्ट रूप से छुपा हुआ */
-    position: fixed; /* स्क्रीन पर फिक्स रहेगा */
-    z-index: 1000; /* बाकी सब चीज़ों के ऊपर दिखेगा */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8); /* बैकग्राउंड को काला और ट्रांसपेरेंट बनाएगा */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* ऊपर और नीचे 15% मार्जिन, बीच में केंद्रित */
-    padding: 30px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px; /* अधिकतम चौड़ाई */
-    text-align: center;
-    border-radius: 10px;
-    position: relative;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-/* एनीमेशन */
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-}
-
-/* इनपुट फ़ील्ड और बटन */
-#leadForm input, #leadForm button, #skipButton {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-#leadForm button {
-    background-color: #ff9900;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-}
-
-/* Skip Button */
-.skip-btn-link {
-    background: none;
-    color: #007bff;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: underline;
-    margin-top: 10px;
-}
-
-/* Close/Skip Icon */
-.close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    cursor: pointer;
-}
-
-/* --- Modal (Popup) Styles --- */
+/* =========================================================
+   7. MODAL (POPUP) STYLES (index.html पर लागू)
+   ========================================================= */
 
 .modal {
     display: none; /* Default: Hides the popup until JavaScript shows it */
@@ -485,14 +475,3 @@ form textarea {
     text-decoration: none;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
