@@ -77,24 +77,23 @@ h1, h2, h3 {
 
 
 /* ======================================= */
-/* 2. Hero Section (Slider/Main Image) - 💥 SLIDER FIX HERE 💥 */
+/* 2. Hero Section (Slider/Main Image) - 💥 SLIDER FIXED HEIGHT 💥 */
 /* ======================================= */
 .hero-section {
     position: relative;
-    height: 450px; 
+    /* Set a sufficient height for the slider to display properly */
+    height: 500px; 
     
-    /* BACKGROUND IMAGE REMOVED: (background-image: url... ) ताकि स्लाइडर दिखे */
-    
-    display: flex; /* Slider और Content को सेंटर करने के लिए */
+    display: flex; 
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden; 
 }
 
-/* Content Slider के ऊपर दिखने के लिए */
+/* Content to overlay on the slider */
 .hero-content {
-    position: absolute; /* Slider के ऊपर आएगा */
+    position: absolute; 
     z-index: 10;
     padding: 20px;
 }
@@ -117,8 +116,9 @@ h1, h2, h3 {
 
 .carousel-inner img {
     width: 100%;
+    /* Ensure image fills the full height of the 500px container */
     height: 100%;
-    object-fit: cover; /* फ़ोटो को Crop किए बिना पूरी तरह से भरें */
+    object-fit: cover; 
 }
 
 /* Optional: Overlay to make text readable */
@@ -129,8 +129,8 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
-    z-index: 5; /* Content से कम लेकिन Slider से ज़्यादा */
+    background: rgba(0, 0, 0, 0.3); 
+    z-index: 5; 
 }
 
 
@@ -175,84 +175,10 @@ footer .line {
     margin-bottom: 10px;
 }
 
+/* (No Pop-up CSS included here) */
 
 /* ======================================= */
-/* 5. POPUP/MODAL STYLING (The Final Fix) */
-/* ======================================= */
-.modal-popup {
-    display: none; 
-    position: fixed; 
-    z-index: 10000; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.7); 
-    
-    /* 🚨 FINAL FIX: Prevents blocking clicks when invisible */
-    pointer-events: none; 
-}
-
-/* JS जब पॉपअप दिखाता है तब यह क्लास ओवरराइड हो जाती है। */
-.modal-popup[style*="block"] {
-    pointer-events: auto; /* Only clickable when visible */
-}
-
-.modal-content-popup {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 25px;
-    border: 1px solid #888;
-    width: 90%; 
-    max-width: 450px; 
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-}
-
-.modal-header-popup {
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-}
-
-.popup-submit-btn {
-    width: 100%;
-    background-color: #ff8c00;
-    color: white;
-    padding: 12px 0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.skip-btn {
-    background: none;
-    border: none;
-    color: #004d99;
-    cursor: pointer;
-    font-size: 0.9em;
-    text-decoration: underline;
-}
-
-/* ======================================= */
-/* 6. Mobile Responsiveness */
+/* 5. Mobile Responsiveness */
 /* ======================================= */
 @media (max-width: 768px) {
     
@@ -287,8 +213,5 @@ footer .line {
     .hero-content h1 {
         font-size: 2.2em;
     }
-    
-    .modal-content-popup {
-        margin: 5% auto; 
-    }
 }
+
