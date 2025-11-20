@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // =======================================================
-    // I. POPUP/MODAL HANDLING AND FORMSPREE SUBMISSION
+    // I. POPUP/MODAL HANDLING AND FORMSPREE SUBMISSION (SAFE MODE)
     // =======================================================
 
+    // Selectors को Try-Catch ब्लॉक के बाहर रखा गया है
     const modal = document.getElementById("welcomeModal");
     const closeSpan = document.querySelector(".modal-header-popup .close-btn");
     const skipButton = document.getElementById("skipButton");
     const form = document.getElementById("leadForm");
 
+    // Formspree URL 
     const formspreeUrl = "https://formspree.io/f/mvgvwygg"; 
 
     // Pop-up Visibility Function
@@ -18,47 +20,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 1. Pop-up दिखाएँ
-    if (modal) {
-        setTimeout(() => {
-            modal.style.display = "block";
-        }, 1500); 
-    }
-
-    // 2. Pop-up बंद करने के हैंडलर (onclick का उपयोग ताकि Error न आए)
-    if (closeSpan) {
-        closeSpan.onclick = closeModal;
-    }
-    if (skipButton) {
-        skipButton.onclick = closeModal;
-    }
-    
-    // Pop-up के बाहर क्लिक होने पर बंद करें
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            closeModal();
+    // 1. Pop-up दिखाएँ (Error Handling के साथ)
+    try {
+        if (modal) {
+            setTimeout(() => {
+                modal.style.display = "block";
+            }, 1500); 
         }
-    };
+    } catch (e) {
+        console.error("Popup Display Error:", e);
+    }
 
-    // 3. Form Submit Handler (यहां कोई बदलाव नहीं किया गया है)
-    if (form) {
-        form.onsubmit = async function(e) {
-            e.preventDefault(); 
-            const name = document.getElementById("custName").value;
-            const mobile = document.getElementById("custMobile").value;
-            
-            try {
+    // 2. Pop-up बंद करने के हैंडलर (Error Handling के साथ)
+    try {
+        if (closeSpan) {
+            closeSpan.onclick = closeModal;
+        }
+        if (skipButton) {
+            skipButton.onclick = closeModal;
+        }
+        
+        // Pop-up के बाहर क्लिक होने पर बंद करें
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+    } catch (e) {
+        console.error("Popup Close Handler Error:", e);
+    }
+
+
+    // 3. Form Submit Handler (Error Handling के साथ)
+    try {
+        if (form) {
+            form.onsubmit = async function(e) {
+                e.preventDefault(); 
+                const name = document.getElementById("custName").value;
+                const mobile = document.getElementById("custMobile").value;
+                
+                // डेटा भेजने की प्रक्रिया
                 const response = await fetch(formspreeUrl, {
                     method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        Name: name,
-                        Mobile: mobile,
-                        Source: 'Popup on Home Page' 
-                    })
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ Name: name, Mobile: mobile, Source: 'Popup on Home Page' })
                 });
 
                 if (response.ok) {
@@ -68,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     alert("Sorry, there was a problem sending the data.");
                 }
-            } catch (error) {
-                alert("Network error.");
-                console.error("Form Submission Error:", error);
-            }
-        };
+            };
+        }
+    } catch (e) {
+        alert("Form submission failed due to an error.");
+        console.error("Form Submission Logic Error:", e);
     }
 
 
@@ -80,23 +85,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // II. MOBILE MENU TOGGLE HANDLER (तीन लाइनों के लिए)
     // =======================================================
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav'); 
+    try {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav'); 
 
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => { 
-            mainNav.classList.toggle('active-mobile');
-        });
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => { 
+                mainNav.classList.toggle('active-mobile');
+            });
+        }
+    } catch (e) {
+        console.error("Mobile Menu Error:", e);
     }
-
-    // =======================================================
-    // III. SLIDER/CAROUSEL LOGIC (Slider के लिए)
-    // =======================================================
     
-    // अगर आपने Carousel/Slider के लिए Bootstrap का इस्तेमाल किया है, तो यह कोड काम करेगा।
-    // अगर आपने कोई कस्टम JS लिखा है, तो वह यहां जोड़ना होगा। 
-    // फिलहाल, हम मान रहे हैं कि Bootstrap इसे हैंडल कर रहा है।
+    // =======================================================
+    // III. SLIDER/CAROUSEL (Slider के लिए)
+    // =======================================================
+
+    // अगर आप Bootstrap Carousel का इस्तेमाल कर रहे हैं, तो वह अपने आप काम करेगा 
+    // क्योंकि आपने Bootstrap JS लिंक किया हुआ है। इस सेक्शन में कोई JS की ज़रूरत नहीं है। 
     
 });
-
-
