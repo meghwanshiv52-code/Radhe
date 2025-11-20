@@ -5,14 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // =======================================================
 
     const modal = document.getElementById("welcomeModal");
-    // ध्यान दें: closeSpan को चुनने का तरीका बदला गया है ताकि यह 100% काम करे
-    const closeSpan = document.querySelector(".modal-header-popup .close-btn"); 
+    const closeSpan = document.querySelector(".modal-header-popup .close-btn");
     const skipButton = document.getElementById("skipButton");
     const form = document.getElementById("leadForm");
 
     const formspreeUrl = "https://formspree.io/f/mvgvwygg"; 
 
-    // --- Pop-up Visibility Functions ---
+    // Pop-up Visibility Function
     const closeModal = () => {
         if (modal) {
              modal.style.display = "none";
@@ -21,18 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Pop-up दिखाएँ
     if (modal) {
-        // Pop-up को दिखाने के लिए 1.5 सेकंड का विलंब (Delay)
         setTimeout(() => {
             modal.style.display = "block";
         }, 1500); 
     }
 
-    // 2. Pop-up बंद करने के हैंडलर (अब ये ठीक से काम करेंगे)
+    // 2. Pop-up बंद करने के हैंडलर (onclick का उपयोग ताकि Error न आए)
     if (closeSpan) {
-        closeSpan.addEventListener('click', closeModal); // Event Listener का उपयोग
+        closeSpan.onclick = closeModal;
     }
     if (skipButton) {
-        skipButton.addEventListener('click', closeModal); // Event Listener का उपयोग
+        skipButton.onclick = closeModal;
     }
     
     // Pop-up के बाहर क्लिक होने पर बंद करें
@@ -42,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 3. Form Submit Handler (Formspree पर डेटा भेजने के लिए)
+    // 3. Form Submit Handler (यहां कोई बदलाव नहीं किया गया है)
     if (form) {
         form.onsubmit = async function(e) {
             e.preventDefault(); 
@@ -64,14 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    alert("धन्यवाद, " + name + "! आपका नंबर हमें मिल गया है।");
+                    alert("Thank you, " + name + "! We have received your number.");
                     closeModal();
                     form.reset(); 
                 } else {
-                    alert("माफ़ करें, डेटा भेजने में कोई समस्या आई।");
+                    alert("Sorry, there was a problem sending the data.");
                 }
             } catch (error) {
-                alert("नेटवर्क त्रुटि।");
+                alert("Network error.");
                 console.error("Form Submission Error:", error);
             }
         };
@@ -79,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // =======================================================
-    // II. MOBILE MENU TOGGLE HANDLER (नेविगेशन के लिए)
+    // II. MOBILE MENU TOGGLE HANDLER (तीन लाइनों के लिए)
     // =======================================================
 
     const menuToggle = document.querySelector('.menu-toggle');
@@ -90,4 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
             mainNav.classList.toggle('active-mobile');
         });
     }
+
+    // =======================================================
+    // III. SLIDER/CAROUSEL LOGIC (Slider के लिए)
+    // =======================================================
+    
+    // अगर आपने Carousel/Slider के लिए Bootstrap का इस्तेमाल किया है, तो यह कोड काम करेगा।
+    // अगर आपने कोई कस्टम JS लिखा है, तो वह यहां जोड़ना होगा। 
+    // फिलहाल, हम मान रहे हैं कि Bootstrap इसे हैंडल कर रहा है।
+    
 });
+
+
