@@ -10,9 +10,8 @@
     const skipButton = document.getElementById("skipButton");
     const form = document.getElementById("leadForm");
 
-    // Formspree Endpoint (IMPORTANT: अपनी असली Formspree URL से बदलें!)
-    // For example: https://formspree.io/f/xxxxxxxx
-    const formspreeUrl = "YOUR_FORMSPREE_ENDPOINT"; 
+    
+    const formspreeUrl = "https://formspree.io/f/mvgvwygg"; 
 
     // फंक्शन जो पॉपअप को बंद करता है
     const closeModal = () => {
@@ -102,3 +101,4 @@
         });
     }
 });
+
