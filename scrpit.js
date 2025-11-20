@@ -4,31 +4,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // I. POPUP/MODAL HANDLING AND FORMSPREE SUBMISSION
     // =======================================================
 
-    // पॉपअप के लिए ज़रूरी तत्वों को चुनना
     const modal = document.getElementById("welcomeModal");
     const closeSpan = document.getElementsByClassName("close-btn")[0];
     const skipButton = document.getElementById("skipButton");
     const form = document.getElementById("leadForm");
 
-    // Formspree Endpoint (IMPORTANT: अपनी Formspree URL से बदलें)
+    // सुनिश्चित करें कि यह URL सही है
     const formspreeUrl = "https://formspree.io/f/mvgvwygg"; 
 
-    // फंक्शन जो पॉपअप को बंद करता है
+    // --- Pop-up Visibility Functions ---
     const closeModal = () => {
         if (modal) {
              modal.style.display = "none";
         }
     };
 
-    // 1. पेज लोड होने पर Popup दिखाएँ
-    if (modal) {
+    // 1. Pop-up दिखाएँ
+    // यह चेक करता है कि हम Home Page पर हैं या नहीं। Pop-up केवल index.html पर दिखना चाहिए।
+    // अगर आप चाहते हैं कि यह सभी पेजों पर दिखे, तो इस 'if' कंडीशन को हटा दें।
+    if (modal && window.location.pathname.includes('index.html') || window.location.pathname === '/' ) {
         // Pop-up को दिखाने के लिए 1.5 सेकंड का विलंब (Delay)
         setTimeout(() => {
             modal.style.display = "block";
         }, 1500); 
     }
 
-    // 2. 'X' आइकन, 'Skip' बटन और बाहर क्लिक होने पर Popup बंद करें
+    // 2. Pop-up बंद करने के हैंडलर
     if (closeSpan) {
         closeSpan.onclick = closeModal;
     }
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         skipButton.onclick = closeModal;
     }
     
-    // Popup के बाहर क्लिक होने पर बंद करें
+    // Pop-up के बाहर क्लिक होने पर बंद करें
     window.onclick = function(event) {
         if (event.target === modal) {
             closeModal();
@@ -50,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById("custName").value;
             const mobile = document.getElementById("custMobile").value;
             
-            // डेटा भेजने की प्रक्रिया
             try {
                 const response = await fetch(formspreeUrl, {
                     method: 'POST',
@@ -74,25 +74,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 alert("नेटवर्क त्रुटि।");
-                console.error(error);
+                console.error("Form Submission Error:", error);
             }
         };
     }
 
 
     // =======================================================
-    // II. MOBILE MENU TOGGLE HANDLER
+    // II. MOBILE MENU TOGGLE HANDLER (नेविगेशन के लिए)
     // =======================================================
 
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav'); 
 
+    // यह सेक्शन सुनिश्चित करता है कि मेनू ठीक से खुले और बंद हो
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => { 
             // main-nav पर active-mobile क्लास को टॉगल करना
             mainNav.classList.toggle('active-mobile');
         });
     }
-});
 
+    // यह सुनिश्चित करता है कि अन्य पेजों पर जाने के लिए साधारण <a> टैग काम करते रहें।
+    // (क्योंकि यह code DOMContentLoaded के अंदर है, यह नेविगेशन को ब्लॉक नहीं करना चाहिए।)
+});
 
