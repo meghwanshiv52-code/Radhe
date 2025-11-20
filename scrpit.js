@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // =======================================================
 
     const modal = document.getElementById("welcomeModal");
-    const closeSpan = document.getElementsByClassName("close-btn")[0];
+    // ध्यान दें: closeSpan को चुनने का तरीका बदला गया है ताकि यह 100% काम करे
+    const closeSpan = document.querySelector(".modal-header-popup .close-btn"); 
     const skipButton = document.getElementById("skipButton");
     const form = document.getElementById("leadForm");
 
-    // सुनिश्चित करें कि यह URL सही है
     const formspreeUrl = "https://formspree.io/f/mvgvwygg"; 
 
     // --- Pop-up Visibility Functions ---
@@ -20,21 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // 1. Pop-up दिखाएँ
-    // यह चेक करता है कि हम Home Page पर हैं या नहीं। Pop-up केवल index.html पर दिखना चाहिए।
-    // अगर आप चाहते हैं कि यह सभी पेजों पर दिखे, तो इस 'if' कंडीशन को हटा दें।
-    if (modal && window.location.pathname.includes('index.html') || window.location.pathname === '/' ) {
+    if (modal) {
         // Pop-up को दिखाने के लिए 1.5 सेकंड का विलंब (Delay)
         setTimeout(() => {
             modal.style.display = "block";
         }, 1500); 
     }
 
-    // 2. Pop-up बंद करने के हैंडलर
+    // 2. Pop-up बंद करने के हैंडलर (अब ये ठीक से काम करेंगे)
     if (closeSpan) {
-        closeSpan.onclick = closeModal;
+        closeSpan.addEventListener('click', closeModal); // Event Listener का उपयोग
     }
     if (skipButton) {
-        skipButton.onclick = closeModal;
+        skipButton.addEventListener('click', closeModal); // Event Listener का उपयोग
     }
     
     // Pop-up के बाहर क्लिक होने पर बंद करें
@@ -87,15 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav'); 
 
-    // यह सेक्शन सुनिश्चित करता है कि मेनू ठीक से खुले और बंद हो
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => { 
-            // main-nav पर active-mobile क्लास को टॉगल करना
             mainNav.classList.toggle('active-mobile');
         });
     }
-
-    // यह सुनिश्चित करता है कि अन्य पेजों पर जाने के लिए साधारण <a> टैग काम करते रहें।
-    // (क्योंकि यह code DOMContentLoaded के अंदर है, यह नेविगेशन को ब्लॉक नहीं करना चाहिए।)
 });
-
