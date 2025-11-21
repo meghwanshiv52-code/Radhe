@@ -3,92 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radhe Movers - Fast and Secure Moving Solutions</title>
+    <title>Radhe Packers & Movers - Safe & Reliable Relocation Services</title>
+    
+    <meta name="description" content="Trusted Radhe Packers and Movers for home, office, and vehicle shifting across India. Secure, insured, and timely delivery.">
+    <meta name="keywords" content="packers and movers, radhe movers, home shifting, office relocation, vehicle transport, secure moving">
+    
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <header class="main-header">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo">
-                <h1>Radhe Movers</h1>
+    <div id="welcomeModal" class="modal-popup">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Radhe Movers Welcome Offer!</h2>
+            <p>Get a Free Survey and 15% off on your first home shifting booking!</p>
+            <a href="contact.html" class="btn btn-warning mt-3">Get Free Quote</a>
+        </div>
+    </div>
+    
+    <header class="main-header sticky-top">
+        <div class="container d-flex justify-content-end align-items-center py-2 header-top-row">
+            <div class="d-none d-md-block">
+                <a href="tel:+919876543210" class="top-phone-link">
+                    <i class="fas fa-phone-alt me-2 text-warning"></i> Call Us: +91 98765 43210 
+                </a>
             </div>
-            <nav class="main-nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="services.html">Services</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact us</a>
+        </div>
+
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <div class="logo">
+                <a href="index.html" class="text-decoration-none">
+                    <span class="logo-text-blue">RADHE</span><span class="logo-text-orange">MOVERS</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav d-none d-lg-flex">
+                <a href="index.html" class="nav-link mx-3 active-nav">Home</a>
+                <a href="services.html" class="nav-link mx-3">Our Services</a>
+                <a href="gallery.html" class="nav-link mx-3">Gallery</a>
+                <a href="about.html" class="nav-link mx-3">About Us</a>
+                <a href="contact.html" class="nav-link mx-3">Contact</a>
             </nav>
-            <div class="menu-toggle">
+
+            <a href="contact.html" class="btn btn-warning quote-btn">Get a Quote</a>
+            
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="collapse navbar-collapse d-lg-none" id="navbarNav">
+            <div class="container py-2">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Our Services</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="tel:+919876543210" class="nav-link mt-2 text-warning fw-bold"><i class="fas fa-phone-alt me-2"></i> Call Us Now: 98765 43210</a>
             </div>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div id="mainSlider" class="carousel slide w-100 h-100" data-bs-ride="carousel">
-            <div class="carousel-inner h-100">
-                <div class="carousel-item active h-100">
-                    <img src="images/image-12.jpg" class="d-block w-100 h-100" alt="Moving Service 1">
-                </div>
-                <div class="carousel-item h-100">
-                    <img src="images/image-13.jpg" class="d-block w-100 h-100" alt="Moving Service 2">
-                </div>
-                <div class="carousel-item h-100">
-                    <img src="images/image-14.jpg" class="d-block w-100 h-100" alt="Moving Service 3">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <div class="container hero-content">
-            <h1>Fast and Secure Moving Solutions</h1>
-            <p>Your goods, our responsibility. Safe, on-time, and reliable packing and moving services.</p>
-            <a href="#main-features" class="btn btn-primary">Get a quick quote</a>
+    <section class="hero-section d-flex align-items-center text-white text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Safe, Insured, and Stress-Free Moving.</h1>
+            <p class="lead mb-4">Your trusted partner for home, office, and vehicle relocation across India.</p>
+            <a href="contact.html" class="btn btn-warning btn-lg hero-btn">Request a Quote</a>
         </div>
     </section>
 
-    <section class="main-features-section" id="main-features">
+    <section id="services-preview" class="py-5 bg-light">
         <div class="container text-center">
-            <h2>Our Main Features</h2>
+            <h2 class="mb-5 text-dark-blue">Our Primary Moving Services</h2>
             <div class="row">
-                <div class="col-md-4">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Complete Security</h3>
-                    <p>100% safe and insured delivery guarantee for goods.</p>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-home feature-icon text-warning mb-3"></i>
+                    <h3 class="h5 text-dark-blue">Residential Shifting</h3>
+                    <p class="text-muted">Expert packing and careful transportation for your household goods.</p>
                 </div>
-                <div class="col-md-4">
-                    <i class="fas fa-truck-moving"></i>
-                    <h3>On-time Delivery</h3>
-                    <p>Promise of pickup and drop-off at the scheduled time.</p>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-building feature-icon text-warning mb-3"></i>
+                    <h3 class="h5 text-dark-blue">Corporate Relocation</h3>
+                    <p class="text-muted">Minimizing downtime with swift and secure office equipment movement.</p>
                 </div>
-                <div class="col-md-4">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Affordable Rates</h3>
-                    <p>Best services, without any hidden charges.</p>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-car feature-icon text-warning mb-3"></i>
+                    <h3 class="h5 text-dark-blue">Car & Bike Carrier</h3>
+                    <p class="text-muted">Door-to-door, secure transportation for your valuable vehicles.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer>
+    
+    <section id="gallery-preview" class="py-5">
         <div class="container text-center">
-            <p class="line"></p>
-            <p>&copy; 2025 Radhe Packers and Movers. All rights reserved.</p>
+            <h2 class="mb-5 text-dark-blue">Glimpses of Our Secure Packing</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <img src="images/gallery-1.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Radhe Movers Team Packing Goods">
+                </div>
+                <div class="col-md-4">
+                    <img src="images/gallery-2.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Vehicle Transport Carrier">
+                </div>
+                <div class="col-md-4">
+                    <img src="images/gallery-3.jpg" class="img-fluid rounded shadow-sm gallery-img" alt="Securely Packed Boxes">
+                </div>
+            </div>
+            <a href="gallery.html" class="btn btn-outline-warning mt-4 fw-bold">View Full Gallery</a>
+        </div>
+    </section>
+
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 Radhe Movers. All rights reserved.</p>
+            <div class="social-icons mt-3">
+                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-twitter fa-lg"></i></a>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js?v=10"></script> 
-
+    <script src="script.js"></script>
 </body>
 </html>
+
