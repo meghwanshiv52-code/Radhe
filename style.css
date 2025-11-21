@@ -1,127 +1,95 @@
-/* ======================================= */
-/* 0. Base Styling (Default Page Layout) */
-/* ======================================= */
+/* Custom Variables (Colors remain the same for modern look) */
+:root {
+    --dark-blue: #004d99; /* Primary Blue */
+    --orange: #ff8c00;    /* Accent Orange/Yellow */
+    --light-gray: #f8f9fa;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
     color: #333;
-    background-color: #f4f4f4;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+/* --- GLOBAL STYLES --- */
+.text-dark-blue {
+    color: var(--dark-blue);
+}
+.active-nav {
+    color: var(--orange) !important;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 5px;
 }
 
-h1, h2, h3 {
-    color: #004d99; /* Dark Blue for Headings */
-    margin-bottom: 20px;
+/* 1. Header Styling (Top Phone Row) */
+.header-top-row {
+    background-color: var(--dark-blue); 
+    color: white;
+    padding: 8px 15px !important;
 }
 
-/* Global Button Style */
-.btn-primary {
-    background-color: #ff8c00; /* Orange color for buttons */
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #e07b00;
-}
-
-/* ======================================= */
-/* 1. Header and Navigation */
-/* ======================================= */
-.main-header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 50; 
-}
-
-.logo h1 {
-    font-size: 1.8em;
-    margin: 0;
-    color: #004d99;
-}
-
-.main-nav a {
+.top-phone-link {
+    color: white;
     text-decoration: none;
-    color: #333;
-    margin-left: 25px;
+    font-size: 0.95em;
     font-weight: 500;
     transition: color 0.3s;
 }
 
-.main-nav a:hover {
-    color: #ff8c00;
+.top-phone-link:hover {
+    color: var(--orange);
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #004d99;
+.main-header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.logo-text-blue {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
 
-/* ======================================= */
-/* 2. Hero Section (Slider/Main Image) - 💥 SLIDER FIXED HEIGHT 💥 */
-/* ======================================= */
+.logo-text-orange {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.main-nav .nav-link {
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav .nav-link:hover {
+    color: var(--orange);
+}
+
+.quote-btn {
+    background-color: var(--orange) !important;
+    border-color: var(--orange) !important;
+    color: white !important;
+    font-weight: 600;
+    padding: 8px 20px;
+    transition: background-color 0.3s;
+}
+
+.quote-btn:hover {
+    background-color: #e07b00 !important;
+}
+
+/* 2. Hero Section */
 .hero-section {
+    /* Image name for Packers site */
+    background-image: url('images/mover-hero.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 60vh; 
+    min-height: 400px; 
     position: relative;
-    /* Set a sufficient height for the slider to display properly */
-    height: 500px; 
-    
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden; 
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 }
 
-/* Content to overlay on the slider */
-.hero-content {
-    position: absolute; 
-    z-index: 10;
-    padding: 20px;
-}
-
-.hero-content h1 {
-    font-size: 3em;
-    color: white;
-}
-
-.hero-content p {
-    font-size: 1.3em;
-    margin-bottom: 30px;
-}
-
-/* Slider Images Styling */
-.carousel-inner {
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-inner img {
-    width: 100%;
-    /* Ensure image fills the full height of the 500px container */
-    height: 100%;
-    object-fit: cover; 
-}
-
-/* Optional: Overlay to make text readable */
+/* Overlay to darken image for better text readability */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -129,89 +97,85 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3); 
+    background: rgba(0, 0, 0, 0.5); 
     z-index: 5; 
 }
 
-
-/* ======================================= */
-/* 3. Features Section */
-/* ======================================= */
-.main-features-section {
-    padding: 60px 0;
-    background-color: #ffffff;
+.hero-section > .container {
+    z-index: 10;
 }
 
-.main-features-section h2 {
-    font-size: 2.2em;
-    text-align: center;
-    margin-bottom: 50px;
+.hero-btn {
+    background-color: var(--orange) !important;
+    border: none !important;
+    font-weight: 600;
+    padding: 12px 30px;
 }
 
-.main-features-section i {
-    font-size: 3em;
-    color: #ff8c00;
-    margin-bottom: 15px;
+/* 3. Capability/Features Section */
+.feature-icon {
+    font-size: 3.5rem;
+    color: var(--orange);
 }
 
-.main-features-section h3 {
-    font-size: 1.5em;
-    color: #004d99;
-}
-
-/* ======================================= */
 /* 4. Footer */
-/* ======================================= */
-footer {
-    padding: 20px 0;
+.bg-dark {
+    background-color: #333 !important;
+}
+
+/* 💥 POP-UP MODAL STYLING 💥 */
+.modal-popup {
+    display: none; 
+    position: fixed; 
+    z-index: 99999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.7); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 400px; 
     text-align: center;
-    background-color: #333;
-    color: #ccc;
-    font-size: 0.9em;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-footer .line {
-    border-top: 1px solid #555;
-    margin-bottom: 10px;
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
 }
 
-/* (No Pop-up CSS included here) */
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-/* ======================================= */
-/* 5. Mobile Responsiveness */
-/* ======================================= */
-@media (max-width: 768px) {
-    
-    .main-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; 
-        left: 0;
-        background-color: #fff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        z-index: 40;
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+    .hero-section {
+        height: 50vh;
+        min-height: 350px;
     }
-
-    .main-nav a {
-        padding: 10px 20px;
-        margin: 0;
-        border-bottom: 1px solid #eee;
-        text-align: left;
-    }
-    
-    .main-nav.active-mobile {
-        display: flex; 
-    }
-
-    .menu-toggle {
-        display: block; 
-    }
-    
-    .hero-content h1 {
-        font-size: 2.2em;
+    .hero-section h1 {
+        font-size: 2rem;
     }
 }
+
 
