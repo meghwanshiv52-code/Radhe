@@ -190,3 +190,57 @@ footer a {
     text-decoration: none;
 }
 
+
+/* ==================================== */
+/* 1. Left Side Floating Contact Icons CSS */
+/* ==================================== */
+
+/* Container for Left Side Fixed Contact Icons */
+.fixed-contact-left {
+    position: fixed;
+    top: 50%; /* स्क्रीन के बीचों-बीच (ऊपर से) */
+    left: 20px; /* बाएँ किनारे से 20px अंदर */
+    transform: translateY(-50%); /* ऊँचाई के हिसाब से सेंटर करें */
+    z-index: 1050; /* सुनिश्चित करें कि यह सभी चीज़ों के ऊपर हो */
+    display: flex;
+    flex-direction: column; /* आइकॉन्स को एक के नीचे एक रखें */
+    gap: 15px; /* आइकॉन्स के बीच की दूरी */
+}
+
+/* Base style for all floating buttons */
+.fixed-contact-left a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px; /* बटन की चौड़ाई */
+    height: 55px; /* बटन की ऊँचाई */
+    border-radius: 50%; /* गोल आकार */
+    text-decoration: none;
+    color: white; /* आइकॉन्स का रंग सफ़ेद */
+    transition: transform 0.3s ease; /* स्मूथ एनिमेशन */
+}
+
+.fixed-contact-left a:hover {
+    transform: scale(1.1); /* हॉवर करने पर थोड़ा बड़ा हो जाए */
+}
+
+/* 1. Phone specific style (Red) */
+.phone-float-btn {
+    background-color: #DD4B39; 
+}
+
+/* 2. WhatsApp specific style (Green) */
+.whatsapp-float-btn {
+    background-color: #25D366; 
+}
+
+/* 3. Instagram specific style (Pink/Purple Gradient) */
+.insta-float-btn {
+    background-color: #E1306C; 
+    /* Instagram का आकर्षक Gradient इफेक्ट */
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+
+
+
